@@ -110,3 +110,7 @@ and make sure VS Code is using your .venv local project environment.
 ```
 import requests
 ```
+
+## Select Data
+I will be using the seaborn dataset called healthexp.csv
+and example can be found here: https://github.com/mwaskom/seaborn-data/blob/master/healthexp.csv 
