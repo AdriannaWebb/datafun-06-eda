@@ -114,3 +114,68 @@ import requests
 ## Select Data
 I will be using the seaborn dataset called healthexp.csv
 and example can be found here: https://github.com/mwaskom/seaborn-data/blob/master/healthexp.csv 
+
+## Create Jupyter Notebook
+
+1. Create the Notebook: In the VS Code Explorer, create a new file i.e., yourname_eda.ipynb. Ensure it has a .ipynb extension.
+2. Verify your new notebook is open for editing. If needed, view the project files in VS Code Explorer and double-click the notebook file to open it for editing.
+3. Add a Markdown cell at the top of your notebook with the introduction (include the title, author, date and the purpose of the project).
+
+## Import Dependencies at the top
+
+```
+# Import necessary libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pyarrow as pa 
+
+```
+
+## Data Acquisition
+```
+# Load the dataset into a pandas DataFrame 
+df = sns.load_dataset('healthexp')
+
+# Inspect first rows of the DataFrame
+print(df.head())
+```
+
+## Perform Inital Inspections 
+```
+print(df.head(10))
+print(df.shape)
+print(df.dtypes)
+```
+## Initial Descriptive Statistics
+``` 
+print(df.describe())
+```
+
+## Initial Data Distributions
+
+**Numerical Columns:**
+```
+# Inspect histograms for all numerical columns
+df.hist()
+
+# Show all plots
+plt.show()
+```
+**Categorical Columns:***
+```
+# Inspect value counts by categorical column
+df['Country'].value_counts()
+
+# Inspect value counts for all categorical columns
+for col in df.select_dtypes(include=['object', 'category']).columns:
+    # Display count plot
+    sns.countplot(x=col, data=df)
+    plt.title(f'Distribution of {col}')
+    plt.show()
+
+# Show all plots
+plt.show()
+```
+
+ 
